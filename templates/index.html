@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>足底压力实时监测系统</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>PVDF 柔性传感器科研监测系统</h1>
+        
+        <div id="alert-box" class="normal">系统运行正常</div>
+
+        <div class="monitor-area">
+            <div id="foot-canvas">
+                <div id="sensor-0" class="pressure-dot" style="left:50%; top:10%;">Toe</div>
+                <div id="sensor-1" class="pressure-dot" style="left:25%; top:40%;">M1</div>
+                <div id="sensor-2" class="pressure-dot" style="left:75%; top:40%;">M5</div>
+                <div id="sensor-3" class="pressure-dot" style="left:50%; top:85%;">Heel</div>
+                <div id="cop-marker">✚</div>
+            </div>
+        </div>
+        
+        <div class="data-panel">
+            <p>重心偏移 (CoP_X): <span id="val-cop">0.00</span> cm</p>
+            <p>总压力: <span id="val-total">0</span></p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='monitor.js') }}"></script>
+</body>
+</html>
